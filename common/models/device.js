@@ -141,6 +141,11 @@ module.exports = function(model) {
 
 	model.observe('before save', injectOwner);
 
+	model.beforeRemote("**", function(ctx, instance, next) {
+		debug(ctx.query);
+		next();
+	});
+
 	model.afterRemote('prototype.__create__scans', function(ctx, instance, next) {
 
 		// console.log("ctx: ", ctx);
@@ -152,6 +157,13 @@ module.exports = function(model) {
 		var currentUser = loopbackContext.get('currentUser');
 		stl.update(ctx.args.data, ctx.instance, currentUser);
 
+	});
+
+	model.beforeRemote("prototype.__create__rssiTransformations", function(ctx, instance, next) {
+		if (ctx.args.data) {
+			ctx.args.data.usedByPhoneModel = ctx.instance.name; //TODO: use phone model here, instead of name
+		}
+		next();
 	});
 
 	/************************************

@@ -54,6 +54,18 @@
       "type": "hasMany",
       "model": "Coordinate",
       "foreignKey": "deviceId"
+    },
+    "rssiTransformations": {
+      "type": "hasMany",
+      "model": "RssiTransformation",
+      "foreignKey": "deviceId",
+      "through": "FingerprintTransformation"
+    },
+    "fingerprints": {
+      "type": "hasMany",
+      "model": "Fingerprint",
+      "foreignKey": "deviceId",
+      "through": "FingerprintTransformation"
     }
   },
   "acls": [],

@@ -1,0 +1,43 @@
+{
+  "name": "Fingerprint",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "GroupContent": true,
+    "TimeStamp": {
+      "required": false,
+      "validateUpsert": true
+    }
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "scans": {
+      "type": "hasMany",
+      "model": "Scan",
+      "foreignKey": ""
+    },
+    "transformations": {
+      "type": "hasMany",
+      "model": "RssiTransformation",
+      "foreignKey": "fingerprintId",
+      "through": "FingerprintTransformation"
+    },
+    "devices": {
+      "type": "hasMany",
+      "model": "Device",
+      "foreignKey": "fingerprintId",
+      "through": "FingerprintTransformation"
+    },
+    "owner": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

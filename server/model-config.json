@@ -113,5 +113,17 @@
   "Appliance": {
     "dataSource": "mongoDs",
     "public": true
+  },
+  "Fingerprint": {
+    "dataSource": "mongoDs",
+    "public": true
+  },
+  "RssiTransformation": {
+    "dataSource": "mongoDs",
+    "public": true
+  },
+  "FingerprintTransformation": {
+    "dataSource": "mongoDs",
+    "public": true
   }
 }

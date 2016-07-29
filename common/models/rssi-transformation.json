@@ -1,0 +1,45 @@
+{
+  "name": "RssiTransformation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "GroupContent": true,
+    "TimeStamp": {
+      "required": false,
+      "validateUpsert": true
+    }
+  },
+  "properties": {
+    "baselinePhoneModel": {
+      "type": "string",
+      "required": true
+    },
+    "usedByPhoneModel": {
+      "type": "string",
+      "required": true
+    },
+    "parameters": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fingerprints": {
+      "type": "hasMany",
+      "model": "Fingerprint",
+      "foreignKey": "rssiTransformationId",
+      "through": "FingerprintTransformation"
+    },
+    "owner": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,31 @@
+{
+  "name": "FingerprintTransformation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "fingerprint": {
+      "type": "belongsTo",
+      "model": "Fingerprint",
+      "foreignKey": "fingerprintId"
+    },
+    "device": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "deviceId"
+    },
+    "rssiTransformation": {
+      "type": "belongsTo",
+      "model": "RssiTransformation",
+      "foreignKey": "rssiTransformationId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
