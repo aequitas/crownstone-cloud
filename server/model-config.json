@@ -121,9 +121,5 @@
   "RssiTransformation": {
     "dataSource": "mongoDs",
     "public": true
-  },
-  "FingerprintTransformation": {
-    "dataSource": "mongoDs",
-    "public": true
   }
 }

@@ -284,4 +284,26 @@ module.exports = function(model) {
 		}
 	);
 
+	model.getRssiTransformation = function(ownId, baselineDeviceId, cb) {
+		var RssiTransformation = loopback.getModel('RssiTransformation');
+		RssiTransformation.find({where: {and: [{'ownerId': ownId}, {'baselineId': baselineDeviceId}] }}, function(err, transformations) {
+			if (err) return cb(err);
+			cb(null, transformations);
+		});
+	}
+
+	model.remoteMethod(
+		'getRssiTransformation',
+		{
+			http: {path: '/:id/getRssiTransformation/:fk', verb: 'get'},
+			accepts: [
+				{arg: 'id', type: 'any', required: true, http: { source: 'path'}},
+				{arg: 'fk', type: 'any', required: true, http: { source: 'path'}}
+			],
+			returns: {arg: 'rssiTransformation', type: 'RssiTransformation', root: true},
+			description: "Get the RSSI transformation ..."
+		}
+	);
+
+
 };

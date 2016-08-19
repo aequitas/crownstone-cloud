@@ -58,14 +58,12 @@
     "rssiTransformations": {
       "type": "hasMany",
       "model": "RssiTransformation",
-      "foreignKey": "deviceId",
-      "through": "FingerprintTransformation"
+      "foreignKey": "ownerId"
     },
     "fingerprints": {
-      "type": "hasMany",
+      "type": "hasAndBelongsToMany",
       "model": "Fingerprint",
-      "foreignKey": "deviceId",
-      "through": "FingerprintTransformation"
+      "foreignKey": "deviceId"
     }
   },
   "acls": [],

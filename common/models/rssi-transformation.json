@@ -21,6 +21,10 @@
       "type": "string",
       "required": true
     },
+    "baselineId": {
+      "type": "string",
+      "required": true
+    },
     "parameters": {
       "type": "string",
       "required": true
@@ -28,16 +32,15 @@
   },
   "validations": [],
   "relations": {
-    "fingerprints": {
-      "type": "hasMany",
-      "model": "Fingerprint",
-      "foreignKey": "rssiTransformationId",
-      "through": "FingerprintTransformation"
-    },
     "owner": {
       "type": "belongsTo",
       "model": "Device",
       "foreignKey": "ownerId"
+    },
+    "baseline": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "baselineId"
     }
   },
   "acls": [],

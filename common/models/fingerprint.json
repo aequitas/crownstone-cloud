@@ -20,17 +20,10 @@
       "model": "Scan",
       "foreignKey": ""
     },
-    "transformations": {
-      "type": "hasMany",
-      "model": "RssiTransformation",
-      "foreignKey": "fingerprintId",
-      "through": "FingerprintTransformation"
-    },
     "devices": {
-      "type": "hasMany",
+      "type": "hasAndBelongsToMany",
       "model": "Device",
-      "foreignKey": "fingerprintId",
-      "through": "FingerprintTransformation"
+      "foreignKey": "fingerprintId"
     },
     "owner": {
       "type": "belongsTo",
