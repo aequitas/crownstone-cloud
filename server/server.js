@@ -55,6 +55,8 @@ boot(app, __dirname, function(err) {
 });
 
 
+// version bump
+
 // let options = {
 //   dataSource: app.dataSources.userDs, // Data source for oAuth2 metadata persistence
 //   resourceServer: true,
